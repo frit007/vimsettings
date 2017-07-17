@@ -3,3 +3,6 @@ filetype plugin indent on
 set tabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
+" Use system clipboard
+set clipboard=unnamed,unnamedplus
+
