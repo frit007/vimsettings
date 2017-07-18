@@ -4,3 +4,4 @@
 # add ignore exceptions
 !.gitignore
 !.vimrc
+!setup_vim
