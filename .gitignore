@@ -5,3 +5,4 @@
 !.gitignore
 !.vimrc
 !setup_vim
+!.tmux.conf
