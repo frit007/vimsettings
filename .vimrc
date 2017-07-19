@@ -42,6 +42,17 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 
+"-------------------- ADD PLUGINGS ---------------------
+
+" treeview
+Plugin 'scrooloose/nerdtree'
+" Sublime like search
+Plugin 'ctrlpvim/ctrlp.vim'
+" Git management
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
+" syntastic(syntax)
+Plugin 'vim-syntastic/syntastic'
 
 " ------------------ GENERAL OPTION --------------------
 filetype plugin indent on
@@ -110,8 +121,8 @@ function! ToggleComment()
 endfunction
 
 
-nnoremap <c-L> :call ToggleComment()<cr>
-vnoremap <c-L> :call ToggleComment()<cr>
+nnoremap <C-M> :call ToggleComment()<cr>
+vnoremap <C-M> :call ToggleComment()<cr>
 
 
 " If the current buffer has never been saved, it will have no name,
@@ -137,3 +148,12 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+"Nerdtree toggle
+nnoremap <C-N> :NERDTreeToggle<CR>
+
+" Virtual split
+nnoremap <Bar> :vsp<CR>
+nnoremap - :sp<CR>
+
+
