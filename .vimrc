@@ -77,6 +77,7 @@ let s:comment_map = {
     \   "cpp": '\/\/',
     \   "go": '\/\/',
     \   "java": '\/\/',
+    \   "css": '\/\/',
     \   "javascript": '\/\/',
 	\	"json": "\/\/",
     \   "lua": '--',
@@ -142,6 +143,7 @@ set number
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
 nnoremap <silent> <C-S> :if expand("%") == ""<CR>browse confirm w<CR>else<CR>confirm w<CR>endif<CR>
+inoremap <silent> <C-S> :if expand("%") == ""<CR>browse confirm w<CR>else<CR>confirm w<CR>endif<CR>
 
 " Easier Split screen navigation
 nnoremap <C-J> <C-W><C-J>
@@ -156,4 +158,18 @@ nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <Bar> :vsp<CR>
 nnoremap - :sp<CR>
 
+" show nerdtree if vim was started without any options
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" show nerdtree for directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif 
 
+" Close vim if nerdtree is the only thing left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Disable arrow keys to force habit
+noremap <Up> :echo "Arrowkeys have been disabled!"<CR>
+noremap <Down> :echo "Arrowkeys have been disabled!"<CR>
+noremap <Left> :echo "Arrowkeys have been disabled!"<CR>
+noremap <Right> :echo "Arrowkeys have been disabled!"<CR>
